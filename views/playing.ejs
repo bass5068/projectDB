@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <!-- BOOTSTRAP CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .content {
+            margin-left: 300px;
+            padding: 30px;
+            margin-left: 200px;
+        }
+        button.start-btn, button.play-btn, .logout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .start-btn {
+            background-color: #34ce49;
+        }
+        .play-btn {
+            background-color: #16bd00;
+        }
+        .logout-btn {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button onclick='redirectToHome()'class="btn btn-primary start-btn">Home</button>
+        <button class="btn btn-warning play-btn">Play</button>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+    <div class="content">
+        <h1>Playing Spotify in Spytifort</h1>
+        <p>playing</p>
+        <p><%= song_id %></p>        
+        <iframe src="<%= songLink1 %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" ></iframe>
+        <iframe src="<%= songLink2 %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" ></iframe>
+        <iframe src="<%= songLink3 %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" ></iframe>
+        <iframe src="<%= songLink4 %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" ></iframe>
+        <iframe src="<%= songLink5 %>" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media" ></iframe>
+
+    </div>
+    
+    <script>
+        function redirectToHome() {
+            window.location.href = "/"; // ส่งผู้ใช้ไปยังหน้า play.html เมื่อกดปุ่ม Play
+        }
+    </script>
+</body>
+</html>

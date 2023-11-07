@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Home</title>
+    <!-- BOOTSTRAP CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .sidebar {
+            height: 100%;
+            width: 200px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #000000;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+        button.start-btn, button.play-btn, .logout-btn {
+            display: block;
+            width: 100%;
+            padding: 10px 20px;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .start-btn {
+            background-color: #34ce49;
+        }
+        .play-btn {
+            background-color: #16bd00;
+        }
+        .logout-btn {
+            background-color: #e74c3c;
+        }
+        .button-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .button-grid button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 10px;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f1f1f1;
+            cursor: pointer;
+            overflow: hidden;
+        }
+        .button-grid img {
+            width: 250px; /* ปรับขนาดของรูปตามต้องการ */
+            height: auto; /* ปรับขนาดของรูปตามต้องการ */
+            border-radius: 0.5px;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <button class="btn btn-primary start-btn">Home</button>
+        <button onclick="redirectToPlay(1)"class="btn btn-warning play-btn">Play</button>
+        <a href="/logout" class="btn btn-danger">Logout</a>
+    </div>
+    <div class="content">
+        <h1><%= name %></h1>
+        <h1>Welcome to Spytifort</h1>
+        <p>เพลงที่เปลี่ยนชีวิตของคุณไปด้วยเสียง</p>
+        <div class="button-grid">
+            <!-- First Row -->
+            <button onmouseover="showDescription(1)" onmouseout="hideDescription(1)">
+                <img src="https://cdn.discordapp.com/attachments/1157359178554282014/1169571380623319130/rockP.png?ex=6555e33a&is=65436e3a&hm=15a7cbca66a7abb1f1c614cf8924b887b963a01bf5365f6adc9251915f40d8c1&" alt="Image 1">
+                <span id="description1">Rock Classic</span>
+            </button>
+            <button onmouseover="showDescription(2)" onmouseout="hideDescription(2)">
+                <img src="https://cdn.discordapp.com/attachments/1157359178554282014/1169571381189562428/chillP.png?ex=6555e33a&is=65436e3a&hm=a147f3b0114b6c20cde7ffe9d81367ffd206b500bcf50dd3a000b07cca002ec2&" alt="Image 2">
+                <span id="description2">Chills Outs</span>
+            </button>
+            <button onmouseover="showDescription(3)" onmouseout="hideDescription(3)">
+                <img src="https://cdn.discordapp.com/attachments/1157359178554282014/1169571381617360967/hiphopP.png?ex=6555e33a&is=65436e3a&hm=4fe8b1ae1f52784d55f069c56f6a39bb907c75c9a175c137edad38d662826e2b&" alt="Image 3">
+                <span id="description3">HIP HOP</span>
+            </button>
+            <button onmouseover="showDescription(4)" onmouseout="hideDescription(4)">
+                <img src="https://cdn.discordapp.com/attachments/1157359178554282014/1169571381973884948/jazzP.png?ex=6555e33b&is=65436e3b&hm=3f11dc8aeda36a59ed2e8567ea540986be825c716dc0dccac2e5e1e6edf6de23&" alt="Image 4">
+                <span id="description4">JAZZ </span>
+            </button>
+            <button onmouseover="showDescription(5)" onmouseout="hideDescription(5)">
+                <img src="https://cdn.discordapp.com/attachments/1157359178554282014/1169571382330413086/popP.png?ex=6555e33b&is=65436e3b&hm=404867d12d1b9a187fd4e1ae4313e438c77e93705ea36f62969210dedf03f57e&" alt="Image 5">
+                <span id="description5">HOT POP Playlist</span>
+            </button>
+    
+            <!-- Second Row -->
+            <button onmouseover="showDescription(6)" onmouseout="hideDescription(6)" onclick="redirectToPlay(1)">
+                <img src="https://chordcafe.com/pic/albums/sek-loso.jpg" alt="Image 6">
+                <span id="description6">รวมเพลงฮิตโลโซ</span>
+            </button>
+            <button onmouseover="showDescription(7)" onmouseout="hideDescription(7)">
+                <img src="https://image.joox.com/JOOXcover/0/d680fffc-9072-4d85-acd7-0222d20a7004/1000" alt="Image 7">
+                <span id="description7">Billkin</span>
+            </button>
+            <button onmouseover="showDescription(8)" onmouseout="hideDescription(8)">
+                <img src="https://cms.dmpcdn.com/musicarticle/2022/02/27/cb752040-9788-11ec-a238-53494d4ff691_original.jpg" alt="Image 8">
+                <span id="description8">Tattoo Colour</span>
+            </button>
+            <button onmouseover="showDescription(9)" onmouseout="hideDescription(9)">
+                <img src="https://images.workpointtoday.com/workpointnews/2022/04/21105834/1650513511_21920_000032.jpg" alt="Image 9">
+                <span id="description9">Sefe Planet</span>
+            </button>
+            <button onmouseover="showDescription(10)" onmouseout="hideDescription(10)">
+                <img src="https://www.dailynews.co.th/wp-content/uploads/2023/10/03150901_P02_%E0%B8%A5%E0%B8%B1%E0%B9%88%E0%B8%99%E0%B8%97%E0%B8%A1_COCKTAIL_iTUNES_0.jpg" alt="Image 10">
+                <span id="description10">ClockTaill Band</span>
+            </button>
+    
+            <!-- Add more rows as needed -->
+    
+        </div>
+        
+    </div>
+    <script>
+        function redirectToPlay(song_id) {
+            window.location.href = "/playing?song_id=" + song_id; // ส่งผู้ใช้ไปยังหน้า play.html เมื่อกดปุ่ม Play
+            
+        }
+
+        
+        function showDescription(id) {
+            document.getElementById('description' + id).style.display = 'block';
+        }
+
+        function hideDescription(id) {
+            document.getElementById('description' + id).style.display = 'none';
+        }
+    </script>
+</body>
+</html>
